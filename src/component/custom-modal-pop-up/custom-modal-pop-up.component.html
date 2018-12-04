@@ -1,0 +1,22 @@
+<div class="modal fade" [id]="basicSetting.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:auto;">
+  <div class="modal-dialog" [class.modal-lg]="basicSetting.large" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{basicSetting?.title}}</h5>
+        <button *ngIf="basicSetting.upperCross" type="button" class="close crossIcon" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngTemplateOutlet="template">
+        </ng-container>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- <ng-template #tempTemplate>
+  abc
+</ng-template> -->

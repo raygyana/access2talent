@@ -1,0 +1,45 @@
+<app-topbar></app-topbar>
+
+<!-- Sidebar  -->
+<div class="wrapper">
+  <nav id="sidebar">
+    <div class="side_menu_header">Main Links</div>
+    <ul class="list-unstyled components">
+
+      <li>
+        <a routerLink="assessment_test">
+          <i class="fa fa-angle-right"></i> Assessment
+        </a>
+      </li>
+      <li>
+        <a routerLink="create_assessment">
+          <i class="fa fa-angle-right"></i> Create Assessment
+        </a>
+      </li>
+      <li>
+        <a routerLink="questions">
+
+          <i class="fa fa-angle-right"></i> Search Questions
+        </a>
+      </li>
+      <li>
+        <a routerLink="setup_tool">
+          <i class="fa fa-angle-right"></i> Setup Tool
+        </a>
+      </li>
+      <li>
+        <a href="#OrderSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa  fa-angle-right"></i> Order management
+          <span class="fa pull-right fa-angle-down"></span>
+        </a>
+        <ul class="collapse list-unstyled" id="OrderSubmenu">
+          <li>
+            <a routerLink="setup_tool"><i class="fa fa-angle-right"></i> Manage orders</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

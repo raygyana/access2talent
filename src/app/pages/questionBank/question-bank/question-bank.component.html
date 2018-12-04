@@ -1,0 +1,322 @@
+<div class="gray-gr">
+  <div class="container white_bg min-height border_radius">
+    <div class="main_tittle">Question Form</div>
+
+    <div class="left_btn_bar">
+      <a class="inline-block" data-toggle="tooltip" data-placement="left" title="Add New Question" href="#"><i class="fa fa-plus-circle"></i></a>
+      <a class="inline-block" data-toggle="tooltip" data-placement="left" title="Duplicate" href="#"><i class="fa fa-copy"></i></a>
+      <a class="inline-block" data-toggle="tooltip" data-placement="left" title="Delete" href="#"><i class="fa fa-trash"></i></a>
+    </div>
+
+    <div class="my_form">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+          <div class="form-group">
+            <label>Categories<span class="mandatory"> &nbsp;*</span></label>
+            <div>
+              <app-data-drop-down [(ngModel)]="ngcategories" #categories name="categories" [ddOptions]="ddOptionsCategories"
+                [ddTrigger]="ddTriggerCategories" (onValueChange)="doOnValueChange($event)" required="required">
+              </app-data-drop-down>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+          <div class="form-group">
+            <label>Subjects <span class="mandatory"> &nbsp;*</span></label>
+            <div>
+              <app-data-drop-down [(ngModel)]="ngsubjects" #subjects name="subjects" [ddOptions]="ddOptionsSubjects"
+                [ddTrigger]="ddTriggerSubjects" required="required">
+              </app-data-drop-down>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+
+          <div class="question_box">
+            <div class="question_box_tittle"> Question Title </div>
+            <div class="question_box_body">
+              <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                  <div class="form-group">
+                    <label>Question Type <span class="mandatory"> &nbsp;*</span></label>
+                    <div>
+                      <app-data-drop-down [(ngModel)]="ngquesTypes" #dataType name="questType" id="questTypes"
+                        (onValueChange)="doOnQuestType($event)" [ddOptions]="ddOptionsQTypes" [ddTrigger]="ddTriggerQTypes">
+                      </app-data-drop-down>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                  <div class="form-group">
+                    <label for="complexity">Complexity <span class="mandatory"> &nbsp;*</span></label>
+                    <select class="js-select2  form-control form-control-sm" name="complexity">
+                      <!-- <option>Please select</option> -->
+                      <option value="1">1 - Lowest</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10 - Highest</option>
+                    </select>
+                    <div class="dropDownSelect2"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                  <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="text" class=" form-control form-control-sm" id="time" placeholder="Time">
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                  <div class="form-group">
+                    <label for="points">Points</label>
+                    <input type="text" [(ngModel)]="questionBankModel.points" class=" form-control form-control-sm"
+                      placeholder="Points">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 ">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">{{qHeading}}</label>
+                    <textarea type="text" [(ngModel)]="questionBankModel.ques_desc" class=" form-control form-control-sm"
+                      id="exampleInputEmail1" rows="3" style="resize:none">
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="isShortAns">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="ShortAnswer">Short Answer</label>
+                    <textarea type="text" class=" form-control form-control-sm" id="ShortAnswer" placeholder="Type your Short Answer"
+                      rows="3" style="resize:none" [(ngModel)]="questionBankModel.ques_ans">
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngIf="isParagraph">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Paragraph</label>
+                    <textarea class=" form-control form-control-sm" id="exampleFormControlTextarea1" rows="3" style="resize:none"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!--HTML for Multiple Answer Type Question  -->
+              <div *ngIf="isMultiChoice">
+                <div class="row">
+                  <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                    <div class="label-input100 mb-2">Answer Option <i class="fa fa-question-circle"></i></div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="customControl3">
+                        <label class="custom-control-label" for="customControl3">Use Images</label>
+                      </div>
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="customControl4">
+                        <label class="custom-control-label" for="customControl4">Randomize</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+
+                  <label for="ShortAnswer"> Answer Choices </label>
+                  <div class="col-12" *ngFor="let addMultipleOption of addMultipleOptions">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" aria-label="" placeholder="{{addMultipleOption.inputValue}}"
+                        aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary {{addMultipleOption.buttonClass}}" type="button" id="button-addon2">
+                          {{addMultipleOption.optionType}}
+                          <i class="fa {{addMultipleOption.iconClass}}"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <a (click)="OnAddMoreChoice()">+add more Choices</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End of multiple choice answer type question -->
+
+              <!-- Start for True False Questions -->
+              <div *ngIf="isTrueFalse">
+                <div class="row">
+                  <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                    <div class="form-group">
+                      <label> Correct Answer <i class="fa fa-question-circle"></i></label>
+                      <div>
+                        <select class="js-select2 form-control" name="service">
+                          <option value="false">False</option>
+                          <option value="true">True</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End of True false Questions -->
+
+              <!-- Start fo Matching Question Type -->
+              <div *ngIf="isMatching">
+                <div class="row">
+                  <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+                    <div class="label-input100 mb-2">Match Images <i class="fa fa-question-circle"></i></div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="customControl3">
+                        <label class="custom-control-label" for="customControl3"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Matching Items</label>
+                    <div class="form-group" style="margin-bottom: 5px;">
+                      <input class="form-control" id="ShortAnswer" placeholder="A=B*H" type="text">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class=" trangle_body"><img class="trangle" src="../../../../../assets/images/content-img-1.jpg"
+                        alt="img" /></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group formright">
+                      <div>
+                        <select class="js-select2 form-control" name="service">
+                          <option>Current Image</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                      </div>
+                      <span>or <a href="">Upload image</a></span>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input class="form-control" id="ShortAnswer" placeholder="A=(B*H)/2" type="text">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class=" trangle_body"><img class="trangle" src="../../../../../assets/images/content-img-2.jpg"
+                        alt="img" /></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group formright">
+                      <div>
+                        <select class="js-select2 form-control" name="service">
+                          <option>Current Image</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                      </div>
+                      <span>or <a href="">Upload Image</a></span>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input class="form-control" id="ShortAnswer" placeholder="A=ii*r*2" type="text">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class=" trangle_body"><img class="trangle" src="../../../../../assets/images/content-img-3.jpg"
+                        alt="img" /></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group formright">
+                      <div>
+                        <select class="js-select2 form-control" name="service">
+                          <option>Current Image</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                      </div>
+                      <span>or <a href="">Upload Image</a></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End of matching Type Question -->
+
+              <!-- Start for Fill-in-the-blanks -->
+              <div *ngIf="isFillBlanks">
+                <div class="row inline">
+                  <div class="col-md-2 ">
+                    <div class="form-group">
+                      <label>Scoring Option <i class="fa fa-question-circle"></i></label>
+                      <div>
+                        <input type="radio"> Auto-Score
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <div>
+                        <input type="radio" placeholder="200"> Manually Review
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="ShortAnswer"> Answer <i class="fa fa-question-circle"></i></label>
+                      <input class="form-control" id="ShortAnswer" placeholder="40" type="text">
+                    </div>
+                    <a href="">+add another correct answer</a>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Scoring Type <i class="fa fa-question-circle"></i></label>
+                      <div>
+                        <select class="js-select2 form-control" name="service">
+                          <option>Perfect Response</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- End of fill-in-the-blanks -->
+              <div class="btn_box">
+                <button type="button" (click)="submitQueAns()" class="blue_btn">Save Questions</button>
+                <button type="button" class="blue_btn gray-btn">Cancel</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

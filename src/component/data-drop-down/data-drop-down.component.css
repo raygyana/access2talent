@@ -1,0 +1,16 @@
+.dropdown-menu {
+  max-height: 250px;
+}
+
+.ownLoader {
+  position: relative;
+  z-index: 1011;
+  font-size: 34px;
+  color: blue;
+  bottom: 31px;
+  left: 84%;
+}
+
+.outerBox {
+  position: relative;
+}

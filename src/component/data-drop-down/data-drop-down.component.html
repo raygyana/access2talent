@@ -1,0 +1,17 @@
+<!-- <form [formGroup]="myForm">
+
+
+  <input formControlName="textInput">
+ -->
+<ss-multiselect-dropdown #myMultiSector [disabled]="isDisabled" [options]="myOptions" [(ngModel)]="optionsModel" [texts]="myTexts" [settings]="mySettings" (ngModelChange)="onChange($event)"
+  (click)="onClick()">
+</ss-multiselect-dropdown>
+<div *ngIf="ownLoader">
+  <i style="font-size: 20px; color: blue" class="fa fa-spinner fa-pulse" id="loading-indicator"></i>
+</div>
+
+
+<!-- </form>
+
+
+<button (click)="SubmitNow()">submit</button> -->

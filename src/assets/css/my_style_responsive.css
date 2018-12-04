@@ -1,0 +1,97 @@
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media (min-width: 1200px) {
+ /* .container {
+    width: 1170px;
+  }*/
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media (min-width: 992px) {
+  /*.container {
+    width: 970px;
+  }*/
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media (min-width: 768px) {
+  /*.container {
+    width: 750px;
+  }*/
+  
+  
+}
+
+@media (max-width: 767px) {
+	.footer{padding:10px 0 0 0;}
+	.footer h5{ border-bottom:1px solid #efefef;}
+	.introduction_video {margin:30px 0 0 0;}
+	.footer-links {text-align:center; margin-bottom: 10px;}
+	.social-icons { text-align: center;}
+	.campaign_section .campaign_detail{padding:30px 0px 30px 0px;}
+	.campaign_section .campaign_detail h2{font-size: 29px;}
+	.campaign_section .campaign_detail h3{font-size: 22px;}
+	.section-header p{ font-size:12px;}
+	.talenthunt_introduction_section .introduction_detail{ text-align:center;}
+	.talenthunt_introduction_section .section-header .section-title{ text-align:center;}
+	.navbar-brand{ width:50%;}
+	.bg-inverse {background: #191c1e;}
+	.navbar-expand-md .navbar-nav .nav-link{margin-left: 0;}
+	.topband_btn span{ display:none;}
+	.topband_btn i{ margin:0;}
+	.navbar-toggler{padding: 0.45rem 0.65rem;}
+	.on_mobile{ position:absolute; right:60px; top:10px;}
+	.navbar{padding: 0.5rem 0.75rem;}
+	.carousel-caption {text-align:center; left:10%; right:10%; bottom:8%;}
+	.carousel-caption h2{font-size:24px; margin:0;}
+	.carousel-caption p {padding: 10px; line-height:16px; font-size:14px; margin:0;}
+	.carousel-control-prev, .carousel-control-next {width:10%;}
+	
+}
+
+
+@media(min-width:768px) and (max-width:990px) {	
+	.navbar-brand{ width:22%;}
+	.navbar-custom{ font-size:12px;}
+  	.navbar-custom .nav li > a{ margin:0 5px;}
+	.footer h5 span{ display:none;}
+	.collapse {display: block; visibility: visible;}
+	.collapse:not(.show) {
+	  display: block;
+	}
+	.carousel {height:600px; overflow:hidden;}
+	.carousel-caption h2{font-size: 33px;}
+	.navbar-expand-md .navbar-nav .nav-link{margin-left:12px; font-size:12px;}
+	.topband_btn span{ display:none;}
+	.navbar-expand-md > .container, .navbar-expand-md > .container-fluid{ padding:0;}
+	.campaign_section .campaign_detail {font-size: 14px; padding: 20px 0;}
+	.campaign_section .campaign_detail h1 {font-size: 40px; line-height: 40px; margin: 0 0 0px 0;}
+	.campaign_section .campaign_detail h2 {font-size: 24px;}
+	.campaign_section .campaign_detail h3 {font-size: 20px;}
+	.campaign_section .campaign_detail p{ font-size:12px;}
+	.campaign_section .campaign_detail .mb-4{margin-bottom: 1rem !important;}
+	.modal-dialog {max-width:90%;}
+	.carousel-item{ height:600px;}
+}
+
+@media (min-width: 991px) and (max-width:1169px) {
+	.carousel {height:600px; overflow:hidden;}
+	.carousel-item{ height:600px;}
+	.carousel-caption h2{font-size:33px;}
+	.navbar-expand-md .navbar-nav .nav-link{margin-left:20px; font-size:12px;}
+	.navbar-expand-md > .container, .navbar-expand-md > .container-fluid{ padding:0;}
+	.campaign_section .campaign_detail {font-size: 14px; padding: 40px 0;}
+	.campaign_section .campaign_detail h1 {font-size: 50px; line-height: 40px; margin: 0 0 20px 0;}
+	.campaign_section .campaign_detail h2 {font-size: 30px;}
+	.campaign_section .campaign_detail h3 {font-size: 30px;}
+	.campaign_section .campaign_detail p{ font-size:16px;}
+	.campaign_section .campaign_detail .mb-4{margin-bottom: 1rem !important;}
+	
+}
+
+@media (min-width:991px) { 
+	.footer h5 span{ display:none;}
+	.collapse {display: block; visibility: visible;}
+	.collapse:not(.show) {
+	  display: block;
+	}
+}
